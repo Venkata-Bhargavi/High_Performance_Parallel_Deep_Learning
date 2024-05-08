@@ -1,6 +1,11 @@
 import streamlit as st
 import os
 
+model_image_path = "streamlit_app/images/model.png"  # Path to the image of the model used
+
+cpu_training_img = "streamlit_app/images/cpu_parallel.png"
+
+
 def introduction():
     st.title('Leveraging Parallel Processing for AI Image Detection')
     st.write("""
@@ -17,7 +22,6 @@ def introduction():
 
 def display_model_image_and_directory():
     # Display the image of the model used
-    model_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/model.png"  # Path to the image of the model used
     st.image(model_image_path, caption='Model Used', use_column_width=True)
 
 def dataset_details():
@@ -49,8 +53,7 @@ def parallel_processing_cpu():
     """)
 
     # Display the image of the training time comparison
-    image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/cpu_parallel.png"
-    st.image(image_path, caption='Training Time Comparison', use_column_width=True)
+    st.image(cpu_training_img, caption='Training Time Comparison', use_column_width=True)
 
 
 def main():
