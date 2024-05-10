@@ -5,7 +5,7 @@ model_image_path = "streamlit_app/images/model.png"  # Path to the image of the 
 
 cpu_training_img = "streamlit_app/images/cpu_parallel.png"
 
-
+single_gpu_comparison_imp = "streamlit_app/images/cpu_1_gpu.png"
 def introduction():
     st.title('Leveraging Parallel Processing for AI Image Detection')
     st.write("""
@@ -56,14 +56,25 @@ def parallel_processing_cpu():
     st.image(cpu_training_img, caption='Training Time Comparison', use_column_width=True)
 
 
+def parallel_processing_gpu():
+    st.write("""
+    ## Parallel Processing on GPU
+    - Transitioned from utilizing 28 CPUs to a single GPU over 20 epochs to enhance performance and efficiency in the training process.
+    - Leveraged GPU architecture for accelerated computations, marking a significant shift from CPU-based multiprocessing.
+    - Unlike the CPU approach, GPU training employed serial code without multiprocessing, streamlining the training process.
+    - The training process involved iterating through training and validation datasets, with periodic logging of key metrics like loss and accuracy to monitor training progress across epochs.
+    """)
+
+    # Display additional details or images related to GPU performance compariso
+    st.image(single_gpu_comparison_imp, caption='Transitioning to Single GPU-based training drastically reduced training time from 4.5 hours to just 30 minutes (~94% decrease in time)', use_column_width=True)
+
 def main():
     introduction()
     dataset_details()
     model_details()
     display_model_image_and_directory()
     parallel_processing_cpu()
-
-
+    parallel_processing_gpu()
 
 if __name__ == "__main__":
     main()
