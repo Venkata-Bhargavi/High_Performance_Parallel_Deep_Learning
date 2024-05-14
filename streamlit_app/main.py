@@ -1,12 +1,14 @@
 import streamlit as st
 import os
 
-model_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/model.png"  # Path to the image of the model used
+model_image_path = "streamlit_app/images/model.png"  # Path to the image of the model used
 
-cpu_training_img = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/cpu_parallel.png"
-single_gpu_comparison_imp = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/cpu_1_gpu.png"
+cpu_training_img = "streamlit_app/images/cpu_parallel.png"
+single_gpu_comparison_imp = "streamlit_app/images/cpu_1_gpu.png"
 
-ddp_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/ddp.png"
+# ddp_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/ddp.png"
+
+ddp_image_path = "streamlit_app/images/ddp.png"
 
 
 def introduction():
