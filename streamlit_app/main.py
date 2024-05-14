@@ -9,6 +9,8 @@ single_gpu_comparison_imp = "streamlit_app/images/cpu_1_gpu.png"
 # ddp_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/ddp.png"
 
 ddp_image_path = "streamlit_app/images/ddp.png"
+amp_image_path = "streamlit_app/images/amp.png"
+comparison_image_path = "streamlit_app/images/ddp_vs_ddp_amp.png"
 
 
 def introduction():
@@ -84,6 +86,39 @@ def parallel_processing_gpu():
     # Display image related to DDP
     st.image(ddp_image_path, caption='Distributed Data Parallel (DDP) in action', use_column_width=True)
 
+
+def automatic_mixed_precision():
+    st.write("""
+    ## Automatic Mixed Precision (AMP) Performance
+    We enhanced our deep learning model's training efficiency by leveraging parallel processing with Automatic Mixed Precision (AMP) on multiple GPUs, aiming to optimize memory usage and speed up computations.
+
+    Employed AMP to perform arithmetic operations with a combination of low and high precision data types, significantly reducing memory usage and speeding up calculations, while preserving model accuracy through techniques like dynamic loss scaling.
+
+    Incorporating AMP into our parallel processing setup resulted in significant improvements in training efficiency, enabling faster training times and larger model training without compromising accuracy, as evidenced by reduced training durations and maintained accuracy levels across varying GPU configurations.
+    """)
+
+    # Display image related to AMP performance
+    st.image(amp_image_path, caption='Automatic Mixed Precision (AMP) for optimized performance', use_column_width=True)
+
+
+def ddp_vs_ddp_with_amp():
+    st.write("""
+    ## DDP vs DDP with AMP
+    The introduction of AMP alongside DDP processing leads to substantial efficiency gains in terms of reduced training time, particularly prominent with a higher number of GPUs, emphasizing the importance of leveraging both parallel processing and mixed precision for optimizing training efficiency.
+    """)
+    # Display comparison image between DDP and DDP with AMP
+    st.image(comparison_image_path, caption='Comparison between DDP and DDP with AMP', use_column_width=True)
+
+def conclusion():
+    st.write("""
+    ## Conclusion
+    - Leveraging parallel processing techniques such as multiprocessing, DDP, and AMP can significantly enhance the efficiency and scalability of deep learning model training.
+    - By harnessing the computational power of both CPUs and GPUs, we've demonstrated substantial reductions in training time while maintaining model performance.
+    - Additionally, incorporating techniques like AMP alongside DDP processing further optimizes memory usage and accelerates computations, leading to even greater efficiency gains.
+    - These advancements in parallel processing not only facilitate faster training times but also enable the training of larger and more complex models, ultimately advancing the state-of-the-art in AI research and applications.
+    """)
+
+
 def main():
     introduction()
     dataset_details()
@@ -91,7 +126,11 @@ def main():
     display_model_image_and_directory()
     parallel_processing_cpu()
     parallel_processing_gpu()
+    automatic_mixed_precision()
+    ddp_vs_ddp_with_amp()
+    conclusion()
 
 if __name__ == "__main__":
     main()
+
 
