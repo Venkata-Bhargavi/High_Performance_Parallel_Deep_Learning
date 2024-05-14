@@ -1,11 +1,14 @@
 import streamlit as st
 import os
 
-model_image_path = "streamlit_app/images/model.png"  # Path to the image of the model used
+model_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/model.png"  # Path to the image of the model used
 
-cpu_training_img = "streamlit_app/images/cpu_parallel.png"
+cpu_training_img = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/cpu_parallel.png"
+single_gpu_comparison_imp = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/cpu_1_gpu.png"
 
-single_gpu_comparison_imp = "streamlit_app/images/cpu_1_gpu.png"
+ddp_image_path = "/Users/bhargavi/PycharmProjects/High_Performance_Parallel_Deep_Learning/streamlit_app/images/ddp.png"
+
+
 def introduction():
     st.title('Leveraging Parallel Processing for AI Image Detection')
     st.write("""
@@ -65,8 +68,19 @@ def parallel_processing_gpu():
     - The training process involved iterating through training and validation datasets, with periodic logging of key metrics like loss and accuracy to monitor training progress across epochs.
     """)
 
-    # Display additional details or images related to GPU performance compariso
+    # Display additional details or images related to GPU performance comparison
     st.image(single_gpu_comparison_imp, caption='Transitioning to Single GPU-based training drastically reduced training time from 4.5 hours to just 30 minutes (~94% decrease in time)', use_column_width=True)
+
+    # Include DDP content
+    st.write("""
+    ## Distributed Data Parallel (DDP)
+    - Further enhanced performance by utilizing multiple GPUs in parallel for training deep learning models.
+    - DDP enables synchronous distributed training across multiple GPUs, allowing for efficient scaling of model training.
+    - Leveraged the PyTorch framework's DDP module to seamlessly distribute model parameters and gradients across GPUs.
+    """)
+
+    # Display image related to DDP
+    st.image(ddp_image_path, caption='Distributed Data Parallel (DDP) in action', use_column_width=True)
 
 def main():
     introduction()
@@ -78,3 +92,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
