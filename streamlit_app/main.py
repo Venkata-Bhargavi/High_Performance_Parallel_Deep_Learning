@@ -11,7 +11,7 @@ single_gpu_comparison_imp = "streamlit_app/images/cpu_1_gpu.png"
 ddp_image_path = "streamlit_app/images/ddp.png"
 amp_image_path = "streamlit_app/images/amp.png"
 comparison_image_path = "streamlit_app/images/ddp_vs_ddp_amp.png"
-
+speedup_image_path = "streamlit_app/images/speedup.png"
 
 def introduction():
     st.title('Leveraging Parallel Processing for AI Image Detection')
@@ -39,6 +39,12 @@ def dataset_details():
     - **Size:** Approximately 3.5 GB
     - **Image Size Range:** 30KB - 500KB
     """)
+
+def github_repo():
+    st.write("""
+    ## GitHub Repo:
+    """)
+    st.markdown("[https://github.com/Venkata-Bhargavi/High_Performance_Parallel_Deep_Learning](https://github.com/Venkata-Bhargavi/High_Performance_Parallel_Deep_Learning)")
 
 def model_details():
     st.write("""
@@ -109,6 +115,9 @@ def ddp_vs_ddp_with_amp():
     # Display comparison image between DDP and DDP with AMP
     st.image(comparison_image_path, caption='Comparison between DDP and DDP with AMP', use_column_width=True)
 
+
+
+
 def conclusion():
     st.write("""
     ## Conclusion
@@ -117,17 +126,36 @@ def conclusion():
     - Additionally, incorporating techniques like AMP alongside DDP processing further optimizes memory usage and accelerates computations, leading to even greater efficiency gains.
     - These advancements in parallel processing not only facilitate faster training times but also enable the training of larger and more complex models, ultimately advancing the state-of-the-art in AI research and applications.
     """)
+def speedup():
+    st.write("""
+    ## Speedup Comparison
+    - 13% increase in speedup with 4GPU-AMP configuration (giving us the ideal set-up)​
+    - Slight increase in Speedup with 4GPU – DDP configuration
+    """)
+    # Display image showing results
+    st.image(speedup_image_path, caption='Speedup Comparison', use_column_width=True)
+
+    st.write("""
+        ### Efficiency of GPU vs. CPU
+        The results clearly demonstrate the superiority of GPU over CPU for training deep learning models in terms of both speed and efficiency. Even with fewer GPUs, the training time is significantly lower compared to using CPUs.
+
+        ### Effect of AMP
+        The use of Automatic Mixed Precision (AMP) tends to reduce the training time, particularly noticeable with a higher number of GPUs. However, the impact on accuracy varies, with no consistent trend observed in this dataset.
+        """)
+
 
 
 def main():
     introduction()
     dataset_details()
+    github_repo()
     model_details()
     display_model_image_and_directory()
     parallel_processing_cpu()
     parallel_processing_gpu()
     automatic_mixed_precision()
     ddp_vs_ddp_with_amp()
+    speedup()
     conclusion()
 
 if __name__ == "__main__":
