@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 
 model_image_path = "streamlit_app/images/model.png"  # Path to the image of the model used
 
@@ -100,7 +99,40 @@ def automatic_mixed_precision():
 
     Employed AMP to perform arithmetic operations with a combination of low and high precision data types, significantly reducing memory usage and speeding up calculations, while preserving model accuracy through techniques like dynamic loss scaling.
 
-    Incorporating AMP into our parallel processing setup resulted in significant improvements in training efficiency, enabling faster training times and larger model training without compromising accuracy, as evidenced by reduced training durations and maintained accuracy levels across varying GPU configurations.
+    Incorporating AMP into the parallel processing setup resulted in significant improvements in training efficiency, enabling faster training times and larger model training without compromising accuracy, as evidenced by reduced training durations and maintained accuracy levels across varying GPU configurations.
+    """)
+    st.write("""
+    ### Why Automatic Mixed Precision (AMP)?
+    - **Memory Optimization:** AMP helps optimize memory usage by performing arithmetic operations with a combination of low and high precision data types.
+    - **Speedup:** By reducing memory requirements, AMP accelerates computations, resulting in faster training times.
+    - **Maintained Accuracy:** AMP preserves model accuracy through techniques like dynamic loss scaling, ensuring that precision reduction does not compromise the final results.
+
+    ### How Does Precision Lowering Occur?
+    - **Arithmetic Operations:** AMP performs arithmetic operations using both low (e.g., FP16) and high (e.g., FP32) precision data types.
+    - **Loss Scaling:** To prevent numerical underflow and overflow, AMP dynamically scales the loss gradients during backpropagation, maintaining stability and accuracy.
+    - **Gradient Accumulation:** Gradually accumulated gradients are scaled back before updating model parameters, allowing for efficient utilization of reduced precision.
+    """)
+
+    # Display image related to AMP performance
+    st.image(amp_image_path, caption='Automatic Mixed Precision (AMP) for optimized performance', use_column_width=True)
+
+
+
+
+def automatic_mixed_precision():
+    st.write("""
+    ## Automatic Mixed Precision (AMP) Performance
+    Enhanced the deep learning model's training efficiency by leveraging parallel processing with Automatic Mixed Precision (AMP) on multiple GPUs, aiming to optimize memory usage and speed up computations.
+
+    ### Why Automatic Mixed Precision (AMP)?
+    - **Memory Optimization:** AMP helps optimize memory usage by performing arithmetic operations with a combination of low and high precision data types.
+    - **Speedup:** By reducing memory requirements, AMP accelerates computations, resulting in faster training times.
+    - **Maintained Accuracy:** AMP preserves model accuracy through techniques like dynamic loss scaling, ensuring that precision reduction does not compromise the final results.
+
+    ### How Does Precision Lowering Occur?
+    - **Arithmetic Operations:** AMP performs arithmetic operations using both low (e.g., FP16) and high (e.g., FP32) precision data types.
+    - **Loss Scaling:** To prevent numerical underflow and overflow, AMP dynamically scales the loss gradients during backpropagation, maintaining stability and accuracy.
+    - **Gradient Accumulation:** Gradually accumulated gradients are scaled back before updating model parameters, allowing for efficient utilization of reduced precision.
     """)
 
     # Display image related to AMP performance
