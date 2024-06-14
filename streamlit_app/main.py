@@ -15,11 +15,6 @@ speedup_image_path = "streamlit_app/images/speedup.png"
 def introduction():
     st.title('Leveraging Parallel Processing for AI Image Detection')
     st.write("""
-    ## Introduction
-    This Streamlit app demonstrates the use of an AutoRegressive Neural Network (ARNN) for forecasting residuals in a time series dataset. 
-    The ARNN model is trained on exogenous variables and predicts the residuals obtained from a Vector Autoregression (VAR) model.
-    """)
-    st.write("""
     ## Aim
     Enhance image classification model training through deep learning and parallelization strategies.
     Utilize Multiprocessing, Data Parallelism (DDP), and Automatic Mixed Precision (AMP) to optimize performance throughput.
